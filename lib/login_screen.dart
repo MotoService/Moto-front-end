@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -50,6 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
                 TextField(
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
                   decoration: InputDecoration(
                     labelText: '••••••••••',
                     border: OutlineInputBorder(
@@ -67,21 +71,30 @@ class _LoginScreenState extends State<LoginScreen> {
                       maximumSize: Size(160, 50),
                       shape: StadiumBorder(),
                     ),
-                    child: Text('LOG IN'),
+                    child: Text('Sign in'),
                   ),
                 ),
                 const SizedBox(height: 20),
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF3ebedb),
-                      minimumSize: Size(160, 50),
-                      maximumSize: Size(160, 50),
-                      shape: StadiumBorder(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Not registered yet?'),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'Create an account',
+                        style: TextStyle(
+                          color: Color(0xFF3ebedb),
+                        ),
+                      ),
                     ),
-                    child: Text('Sign Up'),
-                  ),
+                  ],
                 ),
               ],
             ),
